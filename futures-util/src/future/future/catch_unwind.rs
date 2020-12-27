@@ -1,6 +1,7 @@
 use core::any::Any;
 use core::pin::Pin;
 use std::panic::{catch_unwind, UnwindSafe, AssertUnwindSafe};
+use std::prelude::v1::*;
 
 use futures_core::future::Future;
 use futures_core::task::{Context, Poll};

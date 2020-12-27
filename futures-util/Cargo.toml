@@ -13,15 +13,16 @@ Common utilities and extension traits for the futures-rs library.
 
 [features]
 default = ["std", "async-await", "async-await-macro"]
-std = ["alloc", "futures-core/std", "futures-task/std", "slab"]
+std = ["alloc", "futures-core/std", "futures-task/std", "slab", "mesalock_sgx"]
 alloc = ["futures-core/alloc", "futures-task/alloc"]
 async-await = []
 async-await-macro = ["async-await", "futures-macro", "proc-macro-hack", "proc-macro-nested"]
-compat = ["std", "futures_01"]
-io-compat = ["io", "compat", "tokio-io"]
+#compat = ["std", "futures_01"]
+#io-compat = ["io", "compat", "tokio-io"]
 sink = ["futures-sink"]
 io = ["std", "futures-io", "memchr"]
 channel = ["std", "futures-channel"]
+mesalock_sgx = ["sgx_tstd"]
 
 # Unstable features
 # These features are outside of the normal semver guarantees and require the
@@ -41,17 +42,18 @@ futures-sink = { path = "../futures-sink", version = "0.3.8", default-features =
 futures-macro = { path = "../futures-macro", version = "=0.3.8", default-features = false, optional = true }
 proc-macro-hack = { version = "0.5.19", optional = true }
 proc-macro-nested = { version = "0.1.2", optional = true }
-slab = { version = "0.4.2", optional = true }
-memchr = { version = "2.2", optional = true }
-futures_01 = { version = "0.1.25", optional = true, package = "futures" }
-tokio-io = { version = "0.1.9", optional = true }
+slab = { git = "https://github.com/mesalock-linux/slab-sgx", optional = true }
+memchr = { git = "https://github.com/mesalock-linux/rust-memchr-sgx", optional = true }
+#futures_01 = { version = "0.1.25", optional = true, package = "futures" }
+#tokio-io = { version = "0.1.9", optional = true }
 pin-utils = "0.1.0"
 pin-project-lite = "0.2"
+sgx_tstd = { rev = "v1.1.3", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
 
 [dev-dependencies]
-futures = { path = "../futures", version = "0.3.8", features = ["async-await", "thread-pool"] }
-futures-test = { path = "../futures-test", version = "0.3.8" }
-tokio = "0.1.11"
+#futures = { path = "../futures", version = "0.3.8", features = ["async-await", "thread-pool"] }
+#futures-test = { path = "../futures-test", version = "0.3.8" }
+#tokio = "0.1.11"
 
 [package.metadata.docs.rs]
 all-features = true

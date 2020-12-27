@@ -10,8 +10,9 @@ use std::fmt;
 use std::io;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::mpsc;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, SgxMutex as Mutex};
 use std::thread;
+use std::prelude::v1::*;
 
 /// A general-purpose thread pool for scheduling tasks that poll futures to
 /// completion.
@@ -283,7 +284,7 @@ impl ThreadPoolBuilder {
                 thread_builder = thread_builder.name(format!("{}{}", name_prefix, counter));
             }
             if self.stack_size > 0 {
-                thread_builder = thread_builder.stack_size(self.stack_size);
+                //thread_builder = thread_builder.stack_size(self.stack_size);
             }
             thread_builder.spawn(move || state.work(counter, after_start, before_stop))?;
         }

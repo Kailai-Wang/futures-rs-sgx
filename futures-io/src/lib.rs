@@ -26,6 +26,16 @@
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#![cfg_attr(all(feature = "mesalock_sgx",
+                not(target_env = "sgx")), no_std)]
+#![cfg_attr(all(target_env = "sgx", target_vendor = "mesalock"), feature(rustc_private))]
+
+#[cfg(all(feature = "mesalock_sgx", not(target_env = "sgx")))]
+extern crate sgx_tstd as std;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
+
 #[cfg(all(feature = "read-initializer", not(feature = "unstable")))]
 compile_error!("The `read-initializer` feature requires the `unstable` feature as an explicit opt-in to unstable features");
 
@@ -35,6 +45,7 @@ mod if_std {
     use std::ops::DerefMut;
     use std::pin::Pin;
     use std::task::{Context, Poll};
+    use std::prelude::v1::*;
 
     // Re-export some types from `std::io` so that users don't have to deal
     // with conflicts when `use`ing `futures::io` and `std::io`.

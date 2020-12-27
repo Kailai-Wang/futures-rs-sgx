@@ -5,6 +5,7 @@ use futures_io::AsyncBufRead;
 use std::io;
 use std::mem;
 use std::pin::Pin;
+use std::prelude::v1::*;
 use super::read_line::read_line_internal;
 use pin_project_lite::pin_project;
 

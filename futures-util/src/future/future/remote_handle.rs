@@ -19,6 +19,7 @@ use {
     },
     pin_project_lite::pin_project,
 };
+use std::prelude::v1::*;
 
 /// The handle to a remote future returned by
 /// [`remote_handle`](crate::future::FutureExt::remote_handle). When you drop this,

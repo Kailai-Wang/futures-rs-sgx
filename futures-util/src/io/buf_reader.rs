@@ -7,6 +7,7 @@ use pin_project_lite::pin_project;
 use std::io::{self, Read};
 use std::pin::Pin;
 use std::{cmp, fmt};
+use std::prelude::v1::*;
 use super::DEFAULT_BUF_SIZE;
 
 pin_project! {

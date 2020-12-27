@@ -83,9 +83,10 @@ use futures_core::task::{Context, Poll, Waker};
 use futures_core::task::__internal::AtomicWaker;
 use std::fmt;
 use std::pin::Pin;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, SgxMutex as Mutex};
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::Ordering::SeqCst;
+use std::prelude::v1::*;
 
 use crate::mpsc::queue::Queue;
 

@@ -13,7 +13,8 @@ The `AsyncRead`, `AsyncWrite`, `AsyncSeek`, and `AsyncBufRead` traits for the fu
 
 [features]
 default = ["std"]
-std = []
+std = ["mesalock_sgx"]
+mesalock_sgx = ["sgx_tstd"]
 
 # Unstable features
 # These features are outside of the normal semver guarantees and require the
@@ -22,6 +23,7 @@ unstable = []
 read-initializer = []
 
 [dependencies]
+sgx_tstd = { rev = "v1.1.3", git = "https://github.com/apache/teaclave-sgx-sdk.git", optional = true }
 
 [package.metadata.docs.rs]
 all-features = true

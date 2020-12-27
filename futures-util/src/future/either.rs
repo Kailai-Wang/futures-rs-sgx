@@ -163,8 +163,10 @@ mod if_std {
     #[cfg(feature = "read-initializer")]
     use futures_io::Initializer;
     use futures_io::{
-        AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, IoSliceMut, Result, SeekFrom,
+        //AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, IoSliceMut, Result, SeekFrom,
+        AsyncBufRead, AsyncRead, AsyncSeek, AsyncWrite, IoSlice, IoSliceMut, SeekFrom,
     };
+    use std::io::Result;
 
     impl<A, B> AsyncRead for Either<A, B>
     where

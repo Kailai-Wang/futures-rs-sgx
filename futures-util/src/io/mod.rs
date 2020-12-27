@@ -9,6 +9,8 @@
 //! This module is only available when the `io` and `std` features of this
 //! library is activated, and it is activated by default.
 
+use std::prelude::v1::*;
+
 #[cfg(feature = "io-compat")]
 #[cfg_attr(docsrs, doc(cfg(feature = "io-compat")))]
 use crate::compat::Compat;
@@ -16,8 +18,10 @@ use std::{ptr, pin::Pin};
 
 pub use futures_io::{
     AsyncRead, AsyncWrite, AsyncSeek, AsyncBufRead, Error, ErrorKind,
-    IoSlice, IoSliceMut, Result, SeekFrom,
+    //IoSlice, IoSliceMut, Result, SeekFrom,
+    IoSlice, IoSliceMut, SeekFrom,
 };
+
 #[cfg(feature = "read-initializer")]
 #[cfg_attr(docsrs, doc(cfg(feature = "read-initializer")))]
 pub use futures_io::Initializer;

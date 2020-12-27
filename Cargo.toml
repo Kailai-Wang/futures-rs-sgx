@@ -1,4 +1,7 @@
+cargo-features = ["resolver"]
+
 [workspace]
+resolver = "2"
 members = [
   "futures",
   "futures-core",
@@ -9,11 +12,11 @@ members = [
   "futures-sink",
   "futures-task",
   "futures-util",
-  "futures-test",
+  #"futures-test",
 
-  "futures/tests/macro-tests",
-  "futures/tests/macro-reexport",
+  #"futures/tests/macro-tests",
+  #"futures/tests/macro-reexport",
 
-  "examples/functional",
-  "examples/imperative",
+  #"examples/functional",
+  #"examples/imperative",
 ]

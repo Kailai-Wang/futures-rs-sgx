@@ -47,6 +47,7 @@ use std::thread;
 use std::cell::UnsafeCell;
 use std::ptr;
 use std::sync::atomic::{AtomicPtr, Ordering};
+use std::prelude::v1::*;
 
 /// A result of the `pop` function.
 pub(super) enum PopResult<T> {

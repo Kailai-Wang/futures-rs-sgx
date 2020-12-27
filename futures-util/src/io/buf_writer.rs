@@ -5,6 +5,7 @@ use pin_project_lite::pin_project;
 use std::fmt;
 use std::io::{self, Write};
 use std::pin::Pin;
+use std::prelude::v1::*;
 use super::DEFAULT_BUF_SIZE;
 
 pin_project! {

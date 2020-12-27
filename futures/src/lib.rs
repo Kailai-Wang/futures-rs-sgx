@@ -97,6 +97,13 @@
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+#![cfg_attr(all(feature = "mesalock_sgx",
+                not(target_env = "sgx")), no_std)]
+#![cfg_attr(all(target_env = "sgx", target_vendor = "mesalock"), feature(rustc_private))]
+
+#[cfg(all(feature = "mesalock_sgx", not(target_env = "sgx")))]
+extern crate sgx_tstd as std;
+
 #[cfg(all(feature = "cfg-target-has-atomic", not(feature = "unstable")))]
 compile_error!("The `cfg-target-has-atomic` feature requires the `unstable` feature as an explicit opt-in to unstable features");
 
@@ -115,9 +122,9 @@ compile_error!("The `read-initializer` feature requires the `unstable` feature a
 #[doc(hidden)] pub use futures_sink::Sink;
 #[doc(hidden)] pub use futures_util::sink::SinkExt;
 
-#[cfg(feature = "std")]
+#[cfg(feature = "async-await")]
 #[doc(hidden)] pub use futures_io::{AsyncRead, AsyncWrite, AsyncSeek, AsyncBufRead};
-#[cfg(feature = "std")]
+#[cfg(feature = "async-await")]
 #[doc(hidden)] pub use futures_util::{AsyncReadExt, AsyncWriteExt, AsyncSeekExt, AsyncBufReadExt};
 
 // Macro reexports
@@ -331,8 +338,10 @@ pub mod io {
 
     pub use futures_io::{
         AsyncRead, AsyncWrite, AsyncSeek, AsyncBufRead, Error, ErrorKind,
-        IoSlice, IoSliceMut, Result, SeekFrom,
+        //IoSlice, IoSliceMut, Result, SeekFrom,
+        IoSlice, IoSliceMut, SeekFrom,
     };
+    pub use std::io::Result;
 
     #[cfg(feature = "read-initializer")]
     #[cfg_attr(docsrs, doc(cfg(feature = "read-initializer")))]
