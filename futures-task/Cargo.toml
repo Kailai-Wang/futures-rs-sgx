@@ -24,7 +24,7 @@ unstable = []
 cfg-target-has-atomic = []
 
 [dependencies]
-once_cell = { git = "https://github.com/mesalock-linux/once_cell-sgx", optional = true }
+once_cell = { version = "1.18", default-features = false, optional = true }
 sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17", optional = true }
 
 [dev-dependencies]
