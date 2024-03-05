@@ -11,7 +11,7 @@ use std::cell::RefCell;
 use std::ops::{Deref, DerefMut};
 use std::rc::{Rc, Weak};
 use std::sync::{Arc, atomic::{AtomicBool, Ordering}};
-use std::thread::{self, SgxThread as Thread};
+use std::thread::{self, Thread};
 use std::prelude::v1::*;
 
 /// A single-threaded task pool for polling futures to completion.

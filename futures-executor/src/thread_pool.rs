@@ -10,7 +10,7 @@ use std::fmt;
 use std::io;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::mpsc;
-use std::sync::{Arc, SgxMutex as Mutex};
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::prelude::v1::*;
 
