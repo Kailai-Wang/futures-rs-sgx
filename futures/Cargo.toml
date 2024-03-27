@@ -23,7 +23,7 @@ futures-executor = { path = "../futures-executor", version = "0.3.8", default-fe
 futures-io = { path = "../futures-io", version = "0.3.8", default-features = false }
 futures-sink = { path = "../futures-sink", version = "0.3.8", default-features = false }
 futures-util = { path = "../futures-util", version = "0.3.8", default-features = false, features = ["sink"] }
-sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17", optional = true }
+sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview", optional = true }
 
 [dev-dependencies]
 #pin-utils = "0.1.0"

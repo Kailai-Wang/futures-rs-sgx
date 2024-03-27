@@ -48,7 +48,7 @@ memchr = { git = "https://github.com/mesalock-linux/rust-memchr-sgx", optional =
 #tokio-io = { version = "0.1.9", optional = true }
 pin-utils = "0.1.0"
 pin-project-lite = "0.2"
-sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17", optional = true }
+sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview", optional = true }
 
 [dev-dependencies]
 #futures = { path = "../futures", version = "0.3.8", features = ["async-await", "thread-pool"] }

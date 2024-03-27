@@ -27,7 +27,7 @@ cfg-target-has-atomic = ["futures-core/cfg-target-has-atomic"]
 [dependencies]
 futures-core = { path = "../futures-core", version = "0.3.8", default-features = false }
 futures-sink = { path = "../futures-sink", version = "0.3.8", default-features = false, optional = true }
-sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17", features = ["thread"], optional = true }
+sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview", features = ["thread"], optional = true }
 
 [dev-dependencies]
 #futures = { path = "../futures", version = "0.3.8", default-features = true }

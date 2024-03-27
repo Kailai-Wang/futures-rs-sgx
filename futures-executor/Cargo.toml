@@ -21,7 +21,7 @@ mesalock_sgx = ["sgx_tstd"]
 futures-core = { path = "../futures-core", version = "0.3.8", default-features = false }
 futures-task = { path = "../futures-task", version = "0.3.8", default-features = false }
 futures-util = { path = "../futures-util", version = "0.3.8", default-features = false }
-sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview-11-17", optional = true }
+sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", branch = "v2.0.0-preview", optional = true }
 num_cpus = { git = "https://github.com/Kailai-Wang/num_cpus-sgx", branch = "sgx-sdk-2.0.0", optional = true }
 
 [dev-dependencies]
